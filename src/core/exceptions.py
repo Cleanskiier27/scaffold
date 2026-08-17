@@ -1,5 +1,5 @@
 """
-core/exceptions.py — Domain-specific exceptions.
+core/exceptions.py — Domain-specific exceptions for LunaRecycle-OS.
 
 Rules:
 - All exceptions raised by core logic are defined here.
@@ -33,7 +33,7 @@ class DomainError(Exception):
 
 
 # ─────────────────────────────────────────────────────────────
-# Not Found
+# Not Found & Validation
 # ─────────────────────────────────────────────────────────────
 
 class NotFoundError(DomainError):
@@ -48,10 +48,6 @@ class NotFoundError(DomainError):
         self.identifier = identifier
 
 
-# ─────────────────────────────────────────────────────────────
-# Validation
-# ─────────────────────────────────────────────────────────────
-
 class ValidationError(DomainError):
     """Raised when input data fails domain-level validation."""
 
@@ -60,26 +56,6 @@ class ValidationError(DomainError):
         self.field = field
 
 
-# ─────────────────────────────────────────────────────────────
-# Authorization
-# ─────────────────────────────────────────────────────────────
-
-class AuthorizationError(DomainError):
-    """Raised when a caller lacks permission to perform an action."""
-
-    def __init__(self, action: str, resource: str | None = None) -> None:
-        msg = f"Not authorized to perform '{action}'"
-        if resource:
-            msg = f"Not authorized to perform '{action}' on {resource}"
-        super().__init__(msg, code="AUTHORIZATION_ERROR")
-        self.action = action
-        self.resource = resource
-
-
-# ─────────────────────────────────────────────────────────────
-# Conflict
-# ─────────────────────────────────────────────────────────────
-
 class ConflictError(DomainError):
     """Raised when an operation would violate a uniqueness or state constraint."""
 
@@ -87,14 +63,57 @@ class ConflictError(DomainError):
         super().__init__(message, code="CONFLICT")
 
 
-# ─────────────────────────────────────────────────────────────
-# External Service
-# ─────────────────────────────────────────────────────────────
-
 class ExternalServiceError(DomainError):
-    """Raised when a dependency (database, API, queue) fails."""
+    """Raised when a dependency fails."""
 
     def __init__(self, service: str, reason: str) -> None:
         super().__init__(f"{service} unavailable: {reason}", code="EXTERNAL_SERVICE_ERROR")
         self.service = service
         self.reason = reason
+
+
+# ─────────────────────────────────────────────────────────────
+# LunaRecycle Physics & Simulation Errors
+# ─────────────────────────────────────────────────────────────
+
+class SimulationError(DomainError):
+    """Base exception for lunar waste simulation errors."""
+
+    def __init__(self, message: str, *, stage: str | None = None) -> None:
+        super().__init__(message, code="SIMULATION_ERROR")
+        self.stage = stage
+
+
+class InvalidWasteStreamError(ValidationError):
+    """Raised when waste composition is invalid or unprocessable."""
+
+    def __init__(self, message: str, *, waste_type: str | None = None) -> None:
+        super().__init__(message, field=waste_type)
+        self.code = "INVALID_WASTE_STREAM"
+
+
+class ThermalConstraintViolationError(SimulationError):
+    """Raised when thermal limits or melt temperatures violate safe bounds."""
+
+    def __init__(self, message: str, *, temperature_c: float | None = None) -> None:
+        super().__init__(message, stage="THERMAL_ANALYSIS")
+        self.temperature_c = temperature_c
+        self.code = "THERMAL_CONSTRAINT_VIOLATION"
+
+
+# ─────────────────────────────────────────────────────────────
+# NASA Application & Resume Scanner Errors
+# ─────────────────────────────────────────────────────────────
+
+class ResumeParsingError(DomainError):
+    """Raised when resume text extraction or section normalization fails."""
+
+    def __init__(self, message: str) -> None:
+        super().__init__(message, code="RESUME_PARSING_ERROR")
+
+
+class SubmissionGenerationError(DomainError):
+    """Raised when formatting or assembling submission package fails."""
+
+    def __init__(self, message: str) -> None:
+        super().__init__(message, code="SUBMISSION_GENERATION_ERROR")

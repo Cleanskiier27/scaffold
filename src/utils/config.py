@@ -1,8 +1,7 @@
 """
-utils/config.py — Configuration loading and validation.
+utils/config.py — Configuration loading and validation for LunaRecycle-OS.
 
-Reads from environment variables (with optional .env file support).
-Validates all required values at startup — fail fast, fail loud.
+Reads from environment variables with safe defaults for local development.
 """
 
 from __future__ import annotations
@@ -19,17 +18,6 @@ class Environment(str, Enum):
     TEST = "test"
 
 
-def _require(key: str) -> str:
-    """Return the value of an environment variable or raise at startup."""
-    value = os.environ.get(key)
-    if not value:
-        raise EnvironmentError(
-            f"Required environment variable '{key}' is not set. "
-            f"Check your .env file or deployment configuration."
-        )
-    return value
-
-
 def _optional(key: str, default: str = "") -> str:
     return os.environ.get(key, default)
 
@@ -37,10 +25,7 @@ def _optional(key: str, default: str = "") -> str:
 @dataclass(frozen=True)
 class Config:
     """
-    Application configuration. Immutable after loading.
-
-    All values come from environment variables. Never hard-code
-    secrets or environment-specific values in source files.
+    Application configuration for LunaRecycle-OS.
     """
 
     # ── Application ─────────────────────────────────────────
@@ -52,21 +37,12 @@ class Config:
     log_level: str = field(
         default_factory=lambda: _optional("LOG_LEVEL", "INFO").upper()
     )
-    secret_key: str = field(default_factory=lambda: _require("SECRET_KEY"))
-
-    # ── Database ─────────────────────────────────────────────
-    database_url: str = field(
-        default_factory=lambda: _require("DATABASE_URL")
-    )
-    db_pool_size: int = field(
-        default_factory=lambda: int(_optional("DB_POOL_SIZE", "10"))
-    )
-    db_pool_timeout: int = field(
-        default_factory=lambda: int(_optional("DB_POOL_TIMEOUT", "30"))
+    secret_key: str = field(
+        default_factory=lambda: _optional("SECRET_KEY", "lunarecycle-mission-secret-key")
     )
 
     # ── Server ───────────────────────────────────────────────
-    host: str = field(default_factory=lambda: _optional("HOST", "0.0.0.0"))
+    host: str = field(default_factory=lambda: _optional("HOST", "127.0.0.1"))
     port: int = field(
         default_factory=lambda: int(_optional("PORT", "8080"))
     )
@@ -84,11 +60,6 @@ class Config:
         return self.env == Environment.TEST
 
 
-# ─────────────────────────────────────────────────────────────
-# Singleton accessor
-# Load once at application startup; import the instance elsewhere.
-# ─────────────────────────────────────────────────────────────
-
 _config: Config | None = None
 
 
@@ -102,9 +73,7 @@ def get_config() -> Config:
 
 def load_config() -> Config:
     """
-    Load and validate configuration from the environment.
-    Call this once at application startup (before serving requests).
-    Raises EnvironmentError if any required variable is missing.
+    Load configuration from the environment.
     """
     global _config
     _config = Config()

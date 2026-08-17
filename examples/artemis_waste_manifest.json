@@ -1,0 +1,33 @@
+{
+  "manifest_name": "Artemis III Surface Sortie 30-Day Solid Waste Baseline",
+  "crew_size": 4,
+  "duration_days": 30,
+  "allied_organization": "The University of Alabama College of Engineering",
+  "program": "NASA Centennial Challenges - LunaRecycle",
+  "waste_items": [
+    {
+      "name": "Food Packaging Multi-layer Laminates",
+      "stream_type": "FOOD_PACKAGING_ORGANICS",
+      "mass_kg": 8.5,
+      "polymer_fraction": 0.70,
+      "moisture_fraction": 0.10,
+      "melting_temp_c": 140.0
+    },
+    {
+      "name": "Nomex Crew Clothing & Hygiene Wipes",
+      "stream_type": "FABRICS_CREW_WEAR",
+      "mass_kg": 12.0,
+      "polymer_fraction": 0.80,
+      "moisture_fraction": 0.15,
+      "melting_temp_c": 240.0
+    },
+    {
+      "name": "Packaging Dunnage & 3D Print Scrap",
+      "stream_type": "STRUCTURAL_FOAMS",
+      "mass_kg": 7.9,
+      "polymer_fraction": 0.95,
+      "moisture_fraction": 0.01,
+      "melting_temp_c": 180.0
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "mission": "Artemis Lunar Surface Sortie (4 Crew, 30 Days)",
+  "input_mass_kg": 28.4,
+  "mass_recovery_yield_pct": 80.2,
+  "specific_energy_kwh_per_kg": 1.44,
+  "launch_cost_savings_usd": 1138844.0,
+  "end_products": {
+    "3d_printer_filament_1_75mm_kg": 20.17,
+    "reclaimed_water_liters": 2.61,
+    "adsorbed_carbon_filter_cake_kg": 2.68
+  },
+  "telemetry_timeline": [
+    {
+      "time_hr": 0.0,
+      "progress_pct": 0,
+      "temperature_c": -40.6,
+      "power_draw_kw": 0.1,
+      "chamber_pressure_kpa": 101.31,
+      "processed_mass_kg": 0.51
+    },
+    {
+      "time_hr": 1.26,
+      "progress_pct": 6,
+      "temperature_c": -21.2,
+      "power_draw_kw": 0.53,
+      "chamber_pressure_kpa": 101.46,
+      "processed_mass_kg": 0.86
+    },
+    {
+      "time_hr": 2.52,
+      "progress_pct": 13,
+      "temperature_c": 2.5,
+      "power_draw_kw": 0.7,
+      "chamber_pressure_kpa": 102.46,
+      "processed_mass_kg": 1.44
+    },
+    {
+      "time_hr": 3.79,
+      "progress_pct": 20,
+      "temperature_c": 29.5,
+      "power_draw_kw": 0.85,
+      "chamber_pressure_kpa": 106.78,
+      "processed_mass_kg": 2.36
+    },
+    {
+      "time_hr": 5.05,
+      "progress_pct": 26,
+      "temperature_c": 58.1,
+      "power_draw_kw": 0.98,
+      "chamber_pressure_kpa": 117.96,
+      "processed_mass_kg": 3.8
+    },
+    {
+      "time_hr": 6.31,
+      "progress_pct": 33,
+      "temperature_c": 86.2,
+      "power_draw_kw": 1.09,
+      "chamber_pressure_kpa": 133.75,
+      "processed_mass_kg": 5.92
+    },
+    {
+      "time_hr": 7.57,
+      "progress_pct": 40,
+      "temperature_c": 111.7,
+      "power_draw_kw": 1.16,
+      "chamber_pressure_kpa": 141.82,
+      "processed_mass_kg": 8.8
+    },
+    {
+      "time_hr": 8.84,
+      "progress_pct": 46,
+      "temperature_c": 133.3,
+      "power_draw_kw": 1.2,
+      "chamber_pressure_kpa": 133.75,
+      "processed_mass_kg": 12.32
+    },
+    {
+      "time_hr": 10.1,
+      "progress_pct": 53,
+      "temperature_c": 150.5,
+      "power_draw_kw": 1.2,
+      "chamber_pressure_kpa": 117.96,
+      "processed_mass_kg": 16.08
+    },
+    {
+      "time_hr": 11.36,
+      "progress_pct": 60,
+      "temperature_c": 163.6,
+      "power_draw_kw": 1.16,
+      "chamber_pressure_kpa": 106.78,
+      "processed_mass_kg": 19.6
+    },
+    {
+      "time_hr": 12.62,
+      "progress_pct": 66,
+      "temperature_c": 173.1,
+      "power_draw_kw": 1.09,
+      "chamber_pressure_kpa": 102.46,
+      "processed_mass_kg": 22.48
+    },
+    {
+      "time_hr": 13.88,
+      "progress_pct": 73,
+      "temperature_c": 180.0,
+      "power_draw_kw": 0.98,
+      "chamber_pressure_kpa": 101.46,
+      "processed_mass_kg": 24.6
+    },
+    {
+      "time_hr": 15.15,
+      "progress_pct": 80,
+      "temperature_c": 184.8,
+      "power_draw_kw": 0.85,
+      "chamber_pressure_kpa": 101.31,
+      "processed_mass_kg": 26.04
+    },
+    {
+      "time_hr": 16.41,
+      "progress_pct": 86,
+      "temperature_c": 188.0,
+      "power_draw_kw": 0.7,
+      "chamber_pressure_kpa": 101.3,
+      "processed_mass_kg": 26.96
+    },
+    {
+      "time_hr": 17.67,
+      "progress_pct": 93,
+      "temperature_c": 190.3,
+      "power_draw_kw": 0.53,
+      "chamber_pressure_kpa": 101.3,
+      "processed_mass_kg": 27.54
+    },
+    {
+      "time_hr": 18.93,
+      "progress_pct": 100,
+      "temperature_c": 191.8,
+      "power_draw_kw": 0.36,
+      "chamber_pressure_kpa": 101.3,
+      "processed_mass_kg": 27.89
+    }
+  ]
+}

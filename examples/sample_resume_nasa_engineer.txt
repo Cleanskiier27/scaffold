@@ -1,0 +1,35 @@
+ALEXANDER V. MERCER
+Huntsville, AL | (256) 555-0194 | a.mercer@alumni.ua.edu | linkedin.com/in/avmercer-aerospace
+U.S. Citizen | Security Clearance: Secret Eligible
+
+PROFESSIONAL OBJECTIVE
+Senior Aerospace Systems Engineer seeking to lead the NASA LunaRecycle Challenge Phase 2 demonstration in partnership with The University of Alabama, delivering autonomous closed-loop solid waste recycling, ISRU polymer regolith sintering, and digital twin simulation systems for Artemis lunar infrastructure.
+
+EDUCATION
+Master of Science in Aerospace Engineering, Focus: Space Propulsion & ISRU Materials
+The University of Alabama, Tuscaloosa, AL | GPA: 3.92 / 4.00
+Bachelor of Science in Mechanical Engineering, Minor in Computer Science
+Auburn University, Auburn, AL | Magna Cum Laude
+
+CORE COMPETENCIES & TECHNICAL SKILLS
+• Space Domain: In-Situ Resource Utilization (ISRU), ECLSS Closed-Loop Systems, Lunar Regolith Beneficiation, Thermal Vacuum (T-Vac) Testing, Microgravity Fluidics (0.166g)
+• Materials & Processing: Thermoplastic Extrusion, Polymer Pyrolysis, Regolith Sintering, 3D Additive Manufacturing (FDM/FFF), Outgassing Characterization (ASTM E595)
+• Systems Engineering: NASA SP-2016-6105, ConOps Development, SWaP-C Optimization, FMEA / Hazard Analysis, Requirements Verification & Validation (V&V), TRL Progression
+• Digital Twin & Software: Python (NumPy, SciPy), MATLAB/Simulink, Ansys Thermal FEA, SolidWorks, Sensor Telemetry Fusion, Anomaly Detection Algorithms
+
+PROFESSIONAL EXPERIENCE
+Senior Systems & ISRU Research Engineer | Cislunar Advanced Systems Inc., Huntsville, AL | 2023 – Present
+• Spearheaded systems engineering and physics-based digital twin modeling for a 50 kg/month lunar waste recycling unit, achieving 93.5% mass recovery efficiency and reducing specific power to 0.92 kWh/kg.
+• Executed thermal-vacuum finite element analyses simulating extreme lunar surface diurnal cycles (-130°C to +120°C), eliminating thermal runaway risks in high-temperature polymer extrusion barrels.
+• Formulated novel sintered regolith-thermoplastic composite formulation (75% Lunar Highlands simulant, 25% waste polymer film), producing interlocking radiation shielding tiles with 38 MPa compressive strength.
+• Directed SWaP-C trade studies for NASA Artemis habitation outfitting, projecting $1.85M in Earth-to-Moon launch payload mass savings per 180-day crew mission.
+
+Graduate Research Assistant | Space Technologies & Materials Lab, University of Alabama | 2021 – 2023
+• Collaborated with NASA Marshall Space Flight Center (MSFC) on closed-loop life support (ECLSS) solid waste gasification, recovering 98% moisture from organic crew packaging.
+• Built automated sensor telemetry pipeline in Python/Simulink to monitor off-gas pressure spikes during vacuum degassing, increasing process autonomy and lowering astronaut crew intervention to <0.05 hrs/kg.
+• Authored 3 peer-reviewed conference publications (AIAA SciTech, ASCEND) on autonomous ISRU manufacturing and microgravity thermoplastic rheology.
+
+AWARDS & CERTIFICATIONS
+• Winner, University of Alabama College of Engineering Space Innovation Grant (2023)
+• NASA Systems Engineering Certificate of Excellence (NASA SP-2016-6105 compliant)
+• Certified SolidWorks Professional (CSWP) & INCOSE ASEP Candidate

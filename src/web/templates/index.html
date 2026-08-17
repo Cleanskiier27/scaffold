@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LunaRecycle-OS | NASA & University of Alabama Challenge Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="space-theme">
+    <!-- Starfield background animation layer -->
+    <div class="stars-bg"></div>
+
+    <!-- Top Navigation & Mission Banner -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand-group">
+                <div class="logo-orb">
+                    <span class="orb-core"></span>
+                </div>
+                <div>
+                    <h1 class="brand-title">LUNARECYCLE<span class="accent-text">-OS</span></h1>
+                    <p class="brand-subtitle">NASA Centennial Challenges &bull; Allied Org: The University of Alabama</p>
+                </div>
+            </div>
+
+            <div class="status-badge-group">
+                <div class="status-badge live">
+                    <span class="pulse-dot"></span>
+                    <span>MISSION DIGITAL TWIN: ACTIVE</span>
+                </div>
+                <div class="status-badge target">
+                    <span>ARTEMIS BASE CAMP 0.166g</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs-wrapper">
+            <div class="nav-tabs-container">
+                <button class="nav-tab active" data-tab="tab-twin" id="tab-twin-btn">
+                    <span class="tab-icon">🛰️</span>
+                    <span>Digital Twin & Physics Simulator</span>
+                </button>
+                <button class="nav-tab" data-tab="tab-scanner" id="tab-scanner-btn">
+                    <span class="tab-icon">📄</span>
+                    <span>NASA Resume & Application Scan</span>
+                </button>
+                <button class="nav-tab" data-tab="tab-dossier" id="tab-dossier-btn">
+                    <span class="tab-icon">📋</span>
+                    <span>Official UA / NASA Submission Dossier</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- ───────────────────────────────────────────────────────────── -->
+        <!-- TAB 1: Digital Twin & Physics Simulator -->
+        <!-- ───────────────────────────────────────────────────────────── -->
+        <section id="tab-twin" class="tab-pane active">
+            <div class="grid-2col">
+                <!-- Left Column: Controls & Waste Manifest -->
+                <div class="panel glass-panel">
+                    <div class="panel-header">
+                        <h2>⚙️ Lunar Solid Waste & Process Setpoints</h2>
+                        <span class="badge">NASA Artemis Payload Standard</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="scenario-select">Pre-Configured Artemis Mission Manifest</label>
+                        <div class="select-wrapper">
+                            <select id="scenario-select" class="form-control">
+                                <option value="artemis_30day_crew4">Artemis Sortie 30-Day (4 Crew) — 28.4 kg Non-Metabolic Waste</option>
+                                <option value="artemis_base_camp_180day">Artemis Base Camp Expedition (180 Days) — 172.5 kg Solid Waste</option>
+                                <option value="regolith_composite_construction">Lunar Regolith Shielding Tile Sintering Batch — 50.0 kg</option>
+                                <option value="custom">Custom Waste Composition Manifest</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Waste Composition Sliders -->
+                    <div class="subsection">
+                        <div class="subsection-header">
+                            <h3>Waste Stream Mass Allocations (kg)</h3>
+                            <span id="total-manifest-mass" class="highlight-val">28.4 kg Total</span>
+                        </div>
+
+                        <div class="slider-row">
+                            <div class="slider-label-row">
+                                <span>Multi-Layer Packaging & Films (LDPE/PET)</span>
+                                <span id="val-packaging" class="slider-val">8.5 kg</span>
+                            </div>
+                            <input type="range" id="slide-packaging" min="0" max="100" step="0.5" value="8.5" class="range-slider">
+                        </div>
+
+                        <div class="slider-row">
+                            <div class="slider-label-row">
+                                <span>Crew Worn Textiles & Wipes (Nomex/Cotton)</span>
+                                <span id="val-fabrics" class="slider-val">12.0 kg</span>
+                            </div>
+                            <input type="range" id="slide-fabrics" min="0" max="100" step="0.5" value="12.0" class="range-slider">
+                        </div>
+
+                        <div class="slider-row">
+                            <div class="slider-label-row">
+                                <span>Structural Dunnage & 3D Print Foams</span>
+                                <span id="val-foams" class="slider-val">7.9 kg</span>
+                            </div>
+                            <input type="range" id="slide-foams" min="0" max="100" step="0.5" value="7.9" class="range-slider">
+                        </div>
+                    </div>
+
+                    <!-- Process Technology Setpoints -->
+                    <div class="subsection">
+                        <h3>Process Technology & Parameters</h3>
+                        <div class="form-row">
+                            <div class="form-group flex-1">
+                                <label for="tech-select">Processing Method</label>
+                                <select id="tech-select" class="form-control">
+                                    <option value="MELT_FILAMENT_EXTRUSION">Melt Extrusion (1.75mm 3D Print Filament)</option>
+                                    <option value="SINTERED_REGOLITH_COMPOSITE">Sintered Regolith Composite (Radiation Bricks)</option>
+                                    <option value="THERMAL_DEPOLYMERIZATION">Thermal Pyrolysis (Syngas & Carbon Black)</option>
+                                    <option value="CATALYTIC_HYDROGASIFICATION">Catalytic Hydrogasification (Methane & Water)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group flex-1">
+                                <label for="operating-temp">Chamber Temp (°C)</label>
+                                <input type="number" id="operating-temp" value="195" min="100" max="600" class="form-control">
+                            </div>
+                            <div class="form-group flex-1">
+                                <label for="throughput-rate">Throughput (kg/hr)</label>
+                                <input type="number" id="throughput-rate" value="1.5" min="0.2" max="10.0" step="0.1" class="form-control">
+                            </div>
+                            <div class="form-group flex-1">
+                                <label for="power-kw">Power Draw (kW)</label>
+                                <input type="number" id="power-kw" value="1.2" min="0.4" max="5.0" step="0.1" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-row" id="regolith-row" style="display: none;">
+                            <div class="form-group flex-1">
+                                <label for="regolith-ratio">Lunar Regolith Matrix Ratio (% Blend)</label>
+                                <input type="range" id="regolith-ratio" min="40" max="85" value="75" class="range-slider">
+                                <span id="regolith-ratio-val" class="subtext">75% Regolith / 25% Waste Polymer</span>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-row">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="chk-vacuum-degas" checked>
+                                <span class="checkmark"></span>
+                                Lunar Vacuum Degassing & Volatile Condensation Trap
+                            </label>
+                        </div>
+                    </div>
+
+                    <button id="btn-run-simulation" class="btn btn-primary btn-glow">
+                        <span>⚡ RUN DIGITAL TWIN SIMULATION</span>
+                    </button>
+                </div>
+
+                <!-- Right Column: Real-Time Telemetry & Yield Metrics -->
+                <div class="panel glass-panel">
+                    <div class="panel-header">
+                        <h2>📊 Real-Time Telemetry & Yield Metrics</h2>
+                        <span id="sim-status-tag" class="badge badge-success">SIMULATION READY</span>
+                    </div>
+
+                    <!-- Key High-Level Performance Indicators -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <span class="kpi-label">Mass Recovery Yield</span>
+                            <span id="kpi-yield" class="kpi-value text-cyan">92.4%</span>
+                            <span class="kpi-subtext">Target: &gt;85%</span>
+                        </div>
+                        <div class="kpi-card">
+                            <span class="kpi-label">Specific Energy</span>
+                            <span id="kpi-energy" class="kpi-value text-amber">0.95 <small>kWh/kg</small></span>
+                            <span class="kpi-subtext">Target: &lt;1.5 kWh/kg</span>
+                        </div>
+                        <div class="kpi-card">
+                            <span class="kpi-label">Launch Cost Savings</span>
+                            <span id="kpi-savings" class="kpi-value text-green">$1.42M</span>
+                            <span class="kpi-subtext">$50,000 / kg offset</span>
+                        </div>
+                        <div class="kpi-card">
+                            <span class="kpi-label">Lunar Feasibility</span>
+                            <span id="kpi-feasibility" class="kpi-value text-purple">96.8 / 100</span>
+                            <span class="kpi-subtext">TRL 6 Architecture</span>
+                        </div>
+                    </div>
+
+                    <!-- End-Product Manufacturing Breakdown -->
+                    <div class="subsection">
+                        <h3>Manufactured Lunar Assets</h3>
+                        <div id="product-breakdown-list" class="product-cards-container">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Digital Twin Telemetry Charts -->
+                    <div class="subsection">
+                        <div class="subsection-header">
+                            <h3>Telemetry Curves (Temperature, Power & Pressure)</h3>
+                            <span class="subtext">Dynamic Time-Series</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="telemetryChart" width="500" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Hazard & Autonomy Metrics -->
+                    <div class="metric-footer-row">
+                        <div class="footer-metric">
+                            <span class="f-label">Crew Time Required:</span>
+                            <span id="metric-crew-time" class="f-val">1.42 hrs (0.05 h/kg)</span>
+                        </div>
+                        <div class="footer-metric">
+                            <span class="f-label">Volatile Containment:</span>
+                            <span id="metric-hazard" class="f-val text-green">94.5% Closed-Loop</span>
+                        </div>
+                        <div class="footer-metric">
+                            <span class="f-label">Process Duration:</span>
+                            <span id="metric-duration" class="f-val">18.9 hrs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────────── -->
+        <!-- TAB 2: NASA Resume & Application Scanner -->
+        <!-- ───────────────────────────────────────────────────────────── -->
+        <section id="tab-scanner" class="tab-pane">
+            <div class="grid-2col">
+                <!-- Left Column: Input Resume & Target Role -->
+                <div class="panel glass-panel">
+                    <div class="panel-header">
+                        <h2>📄 Resume & Candidate Application Parser</h2>
+                        <span class="badge">NASA OPM & Centennial Challenge Format</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label for="target-role-select">Target Application Track / Role</label>
+                            <select id="target-role-select" class="form-control">
+                                <option value="NASA LunaRecycle Challenge Systems Lead">NASA LunaRecycle Challenge Systems Lead</option>
+                                <option value="ISRU Materials & Thermal Process Engineer">ISRU Materials & Thermal Process Engineer</option>
+                                <option value="Closed-Loop ECLSS & Recycling Specialist">Closed-Loop ECLSS & Recycling Specialist</option>
+                                <option value="University of Alabama Research Lead">University of Alabama Space Research Investigator</option>
+                            </select>
+                        </div>
+                        <div class="form-group flex-initial" style="margin-top: 1.6rem;">
+                            <button id="btn-load-sample-resume" class="btn btn-secondary">
+                                📋 Load Sample NASA Engineer
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resume-text-input">Paste Candidate Resume / CV Content (or Drag & Drop File)</label>
+                        <textarea id="resume-text-input" rows="18" class="form-control code-font" placeholder="Paste full resume text here with Experience, Education, Technical Skills, Projects, and Metrics..."></textarea>
+                    </div>
+
+                    <button id="btn-scan-resume" class="btn btn-primary btn-glow">
+                        <span>🔍 SCAN RESUME FOR NASA & LUNARECYCLE FIT</span>
+                    </button>
+                </div>
+
+                <!-- Right Column: Scan Evaluation & Feedback Dossier -->
+                <div class="panel glass-panel">
+                    <div class="panel-header">
+                        <h2>🎯 NASA Competency Audit & ATS Match</h2>
+                        <span id="scan-candidate-badge" class="badge badge-purple">NO RESUME SCANNED</span>
+                    </div>
+
+                    <!-- Scores Gauge Row -->
+                    <div class="scores-gauge-row">
+                        <div class="gauge-item">
+                            <div class="circle-gauge">
+                                <span id="gauge-match-val" class="gauge-number">--%</span>
+                            </div>
+                            <span class="gauge-title">NASA Match Score</span>
+                        </div>
+                        <div class="gauge-item">
+                            <div class="circle-gauge">
+                                <span id="gauge-ats-val" class="gauge-number">--%</span>
+                            </div>
+                            <span class="gauge-title">Aerospace ATS Score</span>
+                        </div>
+                        <div class="gauge-item">
+                            <div class="circle-gauge">
+                                <span id="gauge-challenge-val" class="gauge-number">--%</span>
+                            </div>
+                            <span class="gauge-title">LunaRecycle Alignment</span>
+                        </div>
+                    </div>
+
+                    <!-- NASA Competencies Progress Bars -->
+                    <div class="subsection">
+                        <h3>NASA & University of Alabama Competency Breakdown</h3>
+                        <div id="competency-bars-container" class="competency-bars-list">
+                            <p class="placeholder-text">Click "Scan Resume" to generate competency score breakdown.</p>
+                        </div>
+                    </div>
+
+                    <!-- Keywords Analysis -->
+                    <div class="subsection">
+                        <h3>Keywords & Technical Vocabulary</h3>
+                        <div class="keyword-tags-row">
+                            <div>
+                                <span class="tag-title text-green">✓ Matched Keywords:</span>
+                                <div id="matched-keywords-container" class="tag-cloud"></div>
+                            </div>
+                            <div style="margin-top: 0.8rem;">
+                                <span class="tag-title text-amber">⚠ Missing Recommended Keywords:</span>
+                                <div id="missing-keywords-container" class="tag-cloud"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tailored Bullet Suggestions -->
+                    <div class="subsection">
+                        <h3>Tailored NASA STAR-Formatted Bullet Recommendations</h3>
+                        <div id="tailored-bullets-container" class="bullets-box">
+                            <p class="placeholder-text">Scan resume to generate optimized federal bullet points.</p>
+                        </div>
+                    </div>
+
+                    <!-- University of Alabama Alignment Endorsement -->
+                    <div class="callout-box">
+                        <div class="callout-icon">🏛️</div>
+                        <div>
+                            <strong>University of Alabama Allied Endorsement Note:</strong>
+                            <p id="ua-notes-text">Scan candidate profile to inspect compatibility with UA Industry Day and McAbee demonstration criteria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ───────────────────────────────────────────────────────────── -->
+        <!-- TAB 3: Official UA / NASA Submission Dossier -->
+        <!-- ───────────────────────────────────────────────────────────── -->
+        <section id="tab-dossier" class="tab-pane">
+            <div class="grid-2col-wide">
+                <!-- Left Column: Submission Metadata Settings -->
+                <div class="panel glass-panel flex-1">
+                    <div class="panel-header">
+                        <h2>📝 Submission Parameters</h2>
+                        <span class="badge">NASA Centennial Challenges</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub-project-title">Project Title</label>
+                        <input type="text" id="sub-project-title" class="form-control" value="LunaRecycle-OS: Autonomous Closed-Loop Lunar Waste Processor & Digital Twin">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub-team-name">Team / Organization Name</label>
+                        <input type="text" id="sub-team-name" class="form-control" value="Aegis Lunar ISRU Consortium">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub-lead-author">Principal Investigator / Systems Lead</label>
+                        <input type="text" id="sub-lead-author" class="form-control" value="Alexander V. Mercer, MS Aerospace (Univ. of Alabama)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub-track">Challenge Submission Track</label>
+                        <select id="sub-track" class="form-control">
+                            <option value="Phase 1: Digital Twin Track">Phase 1: Digital Twin Track</option>
+                            <option value="Phase 2: Prototype & Digital Twin Track" selected>Phase 2: Prototype & Digital Twin Track</option>
+                        </select>
+                    </div>
+
+                    <button id="btn-generate-dossier" class="btn btn-primary btn-glow" style="margin-top: 1rem;">
+                        <span>🚀 COMPILE FULL SUBMISSION DOSSIER</span>
+                    </button>
+
+                    <div class="action-btn-stack" style="margin-top: 1.2rem;">
+                        <button id="btn-copy-dossier-md" class="btn btn-outline">
+                            📋 Copy Markdown Whitepaper
+                        </button>
+                        <button id="btn-print-dossier" class="btn btn-outline">
+                            🖨️ Print / Save as PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Live Formatted Proposal View -->
+                <div class="panel glass-panel flex-2">
+                    <div class="panel-header">
+                        <h2>📜 Official Submission Proposal Dossier</h2>
+                        <span class="badge badge-success">UA / NASA RUBRIC COMPLIANT</span>
+                    </div>
+
+                    <div id="dossier-preview-box" class="dossier-preview">
+                        <!-- Populated dynamically via JS -->
+                        <div class="loading-state">Click "Compile Full Submission Dossier" to render the complete technical proposal.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <p>LunaRecycle-OS &bull; Engineered for NASA Centennial Challenges in partnership with The University of Alabama College of Engineering.</p>
+            <p class="subtext">Compliant with NASA SP-2016-6105 Systems Engineering Handbook &bull; Artemis Lunar Surface ISRU Standards</p>
+        </div>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
