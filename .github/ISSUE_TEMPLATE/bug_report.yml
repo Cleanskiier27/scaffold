@@ -1,0 +1,89 @@
+name: "🐛 Bug Report"
+description: "Something broke. Tell us exactly what happened."
+title: "bug: <short description>"
+labels: ["bug", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > *"A bug is just an undocumented feature waiting for someone honest enough to name it."*
+        
+        Before filing: please search [existing issues](https://github.com/your-org/project-name/issues) to avoid duplicates.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "What happened?"
+      description: "A clear and concise description of the bug."
+      placeholder: "When I do X, Y happens instead of Z."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Steps to reproduce"
+      description: "Minimal steps to reliably reproduce the issue."
+      placeholder: |
+        1. Start the application with `...`
+        2. Navigate to `...`
+        3. Click on `...`
+        4. Observe the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected behavior"
+      description: "What should have happened?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual behavior"
+      description: "What actually happened? Include error messages and stack traces."
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "Help us understand where this breaks."
+      value: |
+        - OS: 
+        - Runtime version: 
+        - project-name version: 
+        - Installation method (source / package / Docker): 
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Relevant logs or screenshots"
+      description: "Paste any relevant logs. Use code blocks for readability."
+      render: shell
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "Additional context"
+      description: "Anything else that might help us understand or reproduce the issue?"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Before submitting"
+      options:
+        - label: "I searched existing issues and this is not a duplicate."
+          required: true
+        - label: "I am running a supported version of project-name."
+          required: true
+        - label: "I have included all information needed to reproduce this bug."
+          required: true

@@ -1,0 +1,67 @@
+# Gitleaks configuration — https://github.com/gitleaks/gitleaks
+# Scans commits for accidentally committed secrets.
+#
+# Run manually:   gitleaks detect --source . --verbose
+# Scan a commit:  gitleaks protect --staged
+# CI usage:       See .github/workflows/ci.yml (secrets-scan job)
+
+title = "project-name Gitleaks Config"
+
+[extend]
+# Extend the default ruleset maintained by the Gitleaks team.
+# This gives you all built-in rules (AWS keys, GitHub tokens, etc.)
+# plus the customizations below.
+useDefault = true
+
+# ─────────────────────────────────────────────
+# Custom rules
+# Add project-specific secret patterns here.
+# ─────────────────────────────────────────────
+
+[[rules]]
+id          = "project-internal-api-key"
+description = "project-name internal API key"
+regex       = '''(?i)proj[_-]?api[_-]?key[_-]?[=:]["']?[a-zA-Z0-9]{32,}'''
+tags        = ["api-key", "project-name"]
+
+[[rules]]
+id          = "generic-secret-assignment"
+description = "Generic high-entropy secret in assignment"
+regex       = '''(?i)(secret|password|passwd|pwd|token|api_key|apikey|auth_key)\s*[=:]\s*["'][^"']{16,}["']'''
+entropy     = 3.5
+tags        = ["generic", "high-entropy"]
+
+# ─────────────────────────────────────────────
+# Allowlist — false positives
+# ─────────────────────────────────────────────
+
+[allowlist]
+description = "Global allowlist"
+
+# Paths to skip entirely
+paths = [
+  # Lock files contain hashes that look like secrets
+  '''(^|/)package-lock\.json$''',
+  '''(^|/)yarn\.lock$''',
+  '''(^|/)pnpm-lock\.yaml$''',
+  '''(^|/)Pipfile\.lock$''',
+  # Generated files
+  '''(^|/)dist/''',
+  '''(^|/)build/''',
+  # Test fixtures
+  '''(^|/)tests?/fixtures?/''',
+  '''(^|/)tests?/data/''',
+]
+
+# Specific commits to ignore (e.g., a historical false positive)
+# commits = ["abc1234def5678"]
+
+# Regex patterns that are known safe
+regexes = [
+  # Example placeholder values in documentation
+  '''YOUR_API_KEY_HERE''',
+  '''REPLACE_WITH_YOUR_''',
+  '''<your[-_].*>''',
+  # Test/example tokens in test files
+  '''test[_-]?token[_-]?[0-9a-f]{8}''',
+]

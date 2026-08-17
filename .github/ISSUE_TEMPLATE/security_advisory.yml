@@ -1,0 +1,37 @@
+name: "🔒 Security Issue (Non-Critical)"
+description: "A security concern that is NOT an active vulnerability. For vulnerabilities, use private reporting."
+title: "security: <short description>"
+labels: ["security", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > ⚠️ **If this is a security vulnerability, do NOT use this form.**
+        > Report vulnerabilities privately via [GitHub Security Advisories](https://github.com/your-org/project-name/security/advisories/new)
+        > or email **security@your-org.com**. See [SECURITY.md](.github/SECURITY.md).
+        
+        Use this form for: security hardening suggestions, dependency concerns, or insecure default configuration discussions.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Describe the security concern"
+      description: "What is the issue and what is the potential impact?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: "Suggested remediation"
+      description: "What change would address this concern?"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Confirmation"
+      options:
+        - label: "This is NOT an exploitable vulnerability — I am using the correct form."
+          required: true

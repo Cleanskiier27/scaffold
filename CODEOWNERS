@@ -1,0 +1,39 @@
+# CODEOWNERS
+#
+# This file defines who is automatically requested for review when a pull
+# request touches specific paths. GitHub uses the LAST matching rule, so
+# order from most general to most specific.
+#
+# Syntax:  <pattern>   <@user or @org/team> [<@user>...]
+#
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# ────────────────────────────────────────────
+# Global fallback — any file not matched below
+# ────────────────────────────────────────────
+*                           @your-org/maintainers
+
+# ────────────────────────────────────────────
+# Infrastructure & CI
+# ────────────────────────────────────────────
+.github/                    @your-org/devops
+.github/workflows/          @your-org/devops
+.github/SECURITY.md         @your-org/security
+
+# ────────────────────────────────────────────
+# Documentation
+# ────────────────────────────────────────────
+docs/                       @your-org/docs-team
+README.md                   @your-org/maintainers
+CHANGELOG.md                @your-org/maintainers
+
+# ────────────────────────────────────────────
+# Source code
+# ────────────────────────────────────────────
+src/                        @your-org/engineering
+
+# ────────────────────────────────────────────
+# Security-sensitive files
+# ────────────────────────────────────────────
+.gitleaks.toml              @your-org/security
+.pre-commit-config.yaml     @your-org/security @your-org/devops

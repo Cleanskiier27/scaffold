@@ -1,0 +1,30 @@
+---
+# markdownlint configuration — https://github.com/DavidAnson/markdownlint
+default: true
+
+# MD013 — Line length. Disabled because long URLs and tables are unavoidable.
+MD013: false
+
+# MD024 — No duplicate headings. Allow in changelog (repeated section names).
+MD024:
+  siblings_only: true
+
+# MD033 — No inline HTML. Allow for badges and details/summary blocks.
+MD033:
+  allowed_elements:
+    - details
+    - summary
+    - br
+    - img
+    - a
+
+# MD041 — First line must be a top-level heading. Relax for ADRs with frontmatter.
+MD041: false
+
+# MD046 — Code block style — enforce fenced blocks.
+MD046:
+  style: fenced
+
+# MD048 — Code fence style — enforce backtick fences.
+MD048:
+  style: backtick

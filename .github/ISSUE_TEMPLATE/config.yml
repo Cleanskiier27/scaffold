@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: 💬 Discussion & Questions
+    url: https://github.com/your-org/project-name/discussions
+    about: "Not a bug or feature? Ask here — the community is listening."
+  - name: 🔒 Security Vulnerability
+    url: https://github.com/your-org/project-name/security/advisories/new
+    about: "Report security vulnerabilities privately. Do not use public issues."
+  - name: 📚 Documentation
+    url: https://your-org.github.io/project-name
+    about: "Check the docs first — your answer might already be there."

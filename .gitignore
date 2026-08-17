@@ -1,0 +1,122 @@
+# ─────────────────────────────────────────────
+# project-name — .gitignore
+# ─────────────────────────────────────────────
+# Organized by category. Add project-specific
+# entries at the bottom under "Project".
+
+# ─────────────────────────────────────────────
+# OS artifacts
+# ─────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ─────────────────────────────────────────────
+# Editor & IDE
+# ─────────────────────────────────────────────
+.idea/
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# ─────────────────────────────────────────────
+# Environment & secrets
+# ─────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+.secrets/
+
+# ─────────────────────────────────────────────
+# Dependency directories
+# ─────────────────────────────────────────────
+node_modules/
+vendor/
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.pip/
+
+# ─────────────────────────────────────────────
+# Build artifacts
+# ─────────────────────────────────────────────
+dist/
+build/
+out/
+target/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.wasm
+
+# ─────────────────────────────────────────────
+# Test & coverage
+# ─────────────────────────────────────────────
+coverage/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+*.lcov
+junit.xml
+test-results/
+
+# ─────────────────────────────────────────────
+# Logs & temp
+# ─────────────────────────────────────────────
+*.log
+logs/
+tmp/
+temp/
+.cache/
+.tmp/
+
+# ─────────────────────────────────────────────
+# Package manager lockfiles (uncomment if needed)
+# ─────────────────────────────────────────────
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+# Pipfile.lock
+
+# ─────────────────────────────────────────────
+# Documentation build output
+# ─────────────────────────────────────────────
+docs/_build/
+docs/site/
+site/
+.docusaurus/
+
+# ─────────────────────────────────────────────
+# Terraform
+# ─────────────────────────────────────────────
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+
+# ─────────────────────────────────────────────
+# Project-specific (customize below)
+# ─────────────────────────────────────────────

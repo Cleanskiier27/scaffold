@@ -1,0 +1,14 @@
+title: ""
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome to the **project-name** discussion forum. This is the place for open-ended conversations, questions, and ideas that don't fit neatly into an issue or pull request.
+
+  - type: textarea
+    id: content
+    attributes:
+      label: "What's on your mind?"
+    validations:
+      required: true

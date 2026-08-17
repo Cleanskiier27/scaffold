@@ -1,0 +1,65 @@
+name: "🔁 Regression Report"
+description: "Something that used to work has stopped working."
+title: "regression: <short description>"
+labels: ["bug", "regression", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > *"The past was working. Find out what changed between then and now."*
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "What regressed?"
+      description: "What behavior worked before and no longer does?"
+    validations:
+      required: true
+
+  - type: input
+    id: last-good-version
+    attributes:
+      label: "Last known good version"
+      placeholder: "v1.2.3"
+    validations:
+      required: true
+
+  - type: input
+    id: first-bad-version
+    attributes:
+      label: "First version with the regression"
+      placeholder: "v1.3.0"
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Steps to reproduce"
+      placeholder: |
+        1. ...
+        2. ...
+        3. Observe regression
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment"
+      value: |
+        - OS: 
+        - Runtime version: 
+        - project-name version: 
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Before submitting"
+      options:
+        - label: "I confirmed this worked in a prior version."
+          required: true
+        - label: "I searched for existing regression reports."
+          required: true

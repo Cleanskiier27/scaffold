@@ -1,0 +1,59 @@
+name: "📝 Documentation Improvement"
+description: "Found something missing, wrong, or confusing in the docs?"
+title: "docs: <short description>"
+labels: ["documentation", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > *"A map that leads nowhere is worse than no map at all."*
+        
+        Documentation issues are first-class bugs. Thank you for taking the time to report one.
+
+  - type: input
+    id: location
+    attributes:
+      label: "Where is the problem?"
+      description: "File path, URL, or section heading."
+      placeholder: "docs/getting-started.md — Installation section"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: "Type of issue"
+      options:
+        - "Missing information"
+        - "Incorrect information"
+        - "Confusing or unclear"
+        - "Outdated"
+        - "Broken link"
+        - "Typo or grammar"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "What's wrong?"
+      description: "Describe the problem clearly. Quote the problematic text if applicable."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: "Suggested improvement"
+      description: "What should it say instead? A draft or outline is welcome."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Before submitting"
+      options:
+        - label: "I checked that this issue hasn't already been reported."
+          required: true

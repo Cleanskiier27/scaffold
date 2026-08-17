@@ -1,0 +1,42 @@
+{
+  // Recommended extensions for this project.
+  // VS Code will prompt teammates to install these when they open the workspace.
+  "recommendations": [
+    // ── Python ──────────────────────────────────────────────
+    "ms-python.python",
+    "ms-python.black-formatter",
+    "ms-python.isort",
+    "charliermarsh.ruff",
+    "ms-python.mypy-type-checker",
+
+    // ── General editor enhancements ─────────────────────────
+    "editorconfig.editorconfig",
+    "streetsidesoftware.code-spell-checker",
+    "gruntfuss.gremlins-tracker-for-vscode",
+
+    // ── Git & GitHub ────────────────────────────────────────
+    "github.vscode-pull-request-github",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+
+    // ── Markdown ────────────────────────────────────────────
+    "davidanson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one",
+
+    // ── YAML ────────────────────────────────────────────────
+    "redhat.vscode-yaml",
+
+    // ── TOML ────────────────────────────────────────────────
+    "tamasfe.even-better-toml",
+
+    // ── Docker (uncomment if using Docker) ──────────────────
+    // "ms-azuretools.vscode-docker",
+
+    // ── REST API testing (uncomment if building an API) ─────
+    // "humao.rest-client",
+
+    // ── AI assistance ───────────────────────────────────────
+    "github.copilot",
+    "github.copilot-chat"
+  ]
+}
