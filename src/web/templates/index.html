@@ -13,6 +13,59 @@
     <!-- Starfield background animation layer -->
     <div class="stars-bg"></div>
 
+    <!-- ═════════════════════════════════════════════════════════════════ -->
+    <!-- Obscure Classified Loading & Sign-In Gateway Overlay -->
+    <!-- ═════════════════════════════════════════════════════════════════ -->
+    <div id="obscure-auth-overlay" class="auth-overlay">
+        <div class="auth-card glass-panel">
+            <div class="auth-header">
+                <div class="auth-seal">
+                    <div class="seal-inner">✦</div>
+                </div>
+                <h2>RESTRICTED ACCESS PORTAL</h2>
+                <p class="auth-sub">NASA Centennial Challenges &bull; DoD / OSD-PCLT Telemetry Sync</p>
+                <div class="classification-banner">UNCLASSIFIED // NASA-UA LUNARECYCLE COMPETITOR ACCESS ONLY</div>
+            </div>
+
+            <!-- Terminal Handshake Sequence -->
+            <div class="terminal-auth-box">
+                <div class="terminal-bar">
+                    <span class="dot-red"></span>
+                    <span class="dot-yellow"></span>
+                    <span class="dot-green"></span>
+                    <span class="terminal-title">cislunar-gateway-v4.9 // secure-handshake</span>
+                </div>
+                <div id="auth-terminal-logs" class="terminal-body code-font">
+                    <p class="log-line">[SYS_INIT] Establishing TLS 1.3 Cislunar Node Sync...</p>
+                    <p class="log-line">[DISA_GATEWAY] Verifying military & academic clearance credentials...</p>
+                    <p class="log-line text-green">[HANDSHAKE_OK] OSD-PCLT / UA College of Engineering Token Verified.</p>
+                    <p class="log-line text-cyan">[ISRU_CORE] Artemis Base Camp 0.166g Physics Digital Twin Ready.</p>
+                    <p class="log-line blink-text">>> IDENTITY AUTHENTICATED: LEVEL 3 AUTHORIZED RESEARCHER</p>
+                </div>
+            </div>
+
+            <!-- Credentials Input & Biometric Unlock -->
+            <div class="auth-actions">
+                <div class="form-group" style="margin-bottom: 0.85rem;">
+                    <label for="auth-callsign">Operator Callsign / CAC Identifier</label>
+                    <input type="text" id="auth-callsign" class="form-control code-font" value="DAYPIRATE-2 // HUNTSVILLE-UA-LEAD">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label for="auth-token">Session Authorization Token</label>
+                    <input type="password" id="auth-token" class="form-control code-font" value="••••••••••••••••••••••••">
+                </div>
+
+                <button id="btn-authenticate-portal" class="btn btn-primary btn-glow auth-btn">
+                    <span>⚡ ENTER MISSION COMMAND DASHBOARD</span>
+                </button>
+
+                <div class="auth-footer-notes">
+                    <span class="lock-icon">🔒</span> Protected by 4096-bit Ephemeral End-to-End Cryptography
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Top Navigation & Mission Banner -->
     <header class="app-header">
         <div class="header-container">
@@ -27,10 +80,10 @@
             </div>
 
             <div class="status-badge-group">
-                <div class="status-badge live">
+                <button id="btn-lock-screen" class="status-badge live lock-badge" title="Lock into Obscure Security Mode">
                     <span class="pulse-dot"></span>
-                    <span>MISSION DIGITAL TWIN: ACTIVE</span>
-                </div>
+                    <span>SECURE GATEWAY: ACTIVE</span>
+                </button>
                 <div class="status-badge target">
                     <span>ARTEMIS BASE CAMP 0.166g</span>
                 </div>

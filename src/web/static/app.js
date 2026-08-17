@@ -4,6 +4,7 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
+    initAuthPortal();
     initTabs();
     initSimulationControls();
     initResumeScanner();
@@ -12,6 +13,40 @@ document.addEventListener("DOMContentLoaded", () => {
     // Run initial baseline simulation
     runSimulation();
 });
+
+/* ─────────────────────────────────────────────────────────────
+   0. Obscure Loading & Classified Sign-In Gateway
+   ───────────────────────────────────────────────────────────── */
+function initAuthPortal() {
+    const overlay = document.getElementById("obscure-auth-overlay");
+    const btnAuth = document.getElementById("btn-authenticate-portal");
+    const btnLock = document.getElementById("btn-lock-screen");
+    const terminalLogs = document.getElementById("auth-terminal-logs");
+
+    if (!overlay || !btnAuth) return;
+
+    btnAuth.addEventListener("click", () => {
+        btnAuth.disabled = true;
+        btnAuth.innerHTML = "<span>⏳ DECRYPTING ACCESS TOKENS...</span>";
+
+        const extraLine = document.createElement("p");
+        extraLine.className = "log-line text-green";
+        extraLine.textContent = `[AUTH_SUCCESS] Session Established: ${new Date().toISOString()} // 0.166G DIGITAL TWIN ACTIVE`;
+        terminalLogs.appendChild(extraLine);
+
+        setTimeout(() => {
+            overlay.classList.add("hidden");
+            btnAuth.disabled = false;
+            btnAuth.innerHTML = "<span>⚡ ENTER MISSION COMMAND DASHBOARD</span>";
+        }, 600);
+    });
+
+    if (btnLock) {
+        btnLock.addEventListener("click", () => {
+            overlay.classList.remove("hidden");
+        });
+    }
+}
 
 /* ─────────────────────────────────────────────────────────────
    1. Tab Navigation
