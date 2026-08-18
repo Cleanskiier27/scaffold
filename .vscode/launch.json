@@ -2,6 +2,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Connect to server",
+      "type": "go",
+      "request": "attach",
+      "mode": "remote",
+      "remotePath": "${workspaceFolder}",
+      "port": 2345,
+      "host": "127.0.0.1"
+    },
+    {
       "name": "Run: project-name",
       "type": "debugpy",
       "request": "launch",
@@ -17,7 +26,11 @@
       "type": "debugpy",
       "request": "launch",
       "module": "pytest",
-      "args": ["${file}", "-v", "--no-header"],
+      "args": [
+        "${file}",
+        "-v",
+        "--no-header"
+      ],
       "justMyCode": false,
       "console": "integratedTerminal"
     },
@@ -26,7 +39,13 @@
       "type": "debugpy",
       "request": "launch",
       "module": "pytest",
-      "args": ["tests/", "-v", "--no-header", "--cov=src", "--cov-report=term-missing"],
+      "args": [
+        "tests/",
+        "-v",
+        "--no-header",
+        "--cov=src",
+        "--cov-report=term-missing"
+      ],
       "justMyCode": false,
       "console": "integratedTerminal"
     }
